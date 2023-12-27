@@ -1,0 +1,37 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background: #EDE6E3;
+}
+h1 {
+    line-height: 1.2em;
+    font-family: Helvetica, sans-serif;
+}
+.container {
+    width: 1100px;
+}
+
+/* Header */
+.header {
+    display: flex;
+    justify-content: space-around;
+}
+.header .container {
+    display: flex;
+    justify-content: center;
+}
+
+/* Scoreboard */
+.scoreboard {
+    display: flex;
+    justify-content: space-around;
+}
+.scoreboard .container {
+    display: flex;
+    justify-content: center;
+    gap: 10em;
+}
+.scoreboard .container h1 {
+    margin-top: 50px;
+}

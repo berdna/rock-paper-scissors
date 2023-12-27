@@ -20,7 +20,7 @@ let loseCount = 0;
 
 function playRound(playerSelection, computerSelection){
     playerSelection = playerSelection.toUpperCase();
-    computerSelection = computerSelection.toUpperCase();
+    computerSelection = getComputerChoice().toUpperCase();
     switch(computerSelection){
         case "ROCK":
             switch(playerSelection){
@@ -74,7 +74,7 @@ function playRound(playerSelection, computerSelection){
 }
 
 const game = (num) => {
-    for(i = 0; i < num; i++){
+    for(let i = 0; i < num; i++){
         playRound(playerSelection, computerSelection);
     }
     if(winCount > loseCount) {
@@ -85,4 +85,36 @@ const game = (num) => {
     }
 }
 
-game(5);
+const rockBtn = document.getElementById('rock-btn');
+rockBtn.addEventListener('click', function(e) {
+    console.log(playRound(e.target.innerText.toUpperCase(), computerSelection));
+    updateWinCount();
+    checkWinCondition();
+});
+
+const paperBtn = document.getElementById('paper-btn');
+paperBtn.addEventListener('click', function(e) {
+    console.log(playRound(e.target.innerText.toUpperCase(), computerSelection));
+    updateWinCount();
+    checkWinCondition();
+});
+
+const scissorBtn = document.getElementById('scissor-btn');
+scissorBtn.addEventListener('click', function(e) {
+    console.log(playRound(e.target.innerText.toUpperCase(), computerSelection));
+    updateWinCount();
+    checkWinCondition();
+});
+
+const updateWins = document.getElementById('wins');
+function updateWinCount(){
+    updateWins.innerText = winCount;
+}
+// game(5);
+function checkWinCondition(){
+    if (winCount >= 5) {
+        const displayWinner = document.createElement('h1');
+        displayWinner.innerText = 'You are the winner!';
+        document.body.appendChild(displayWinner);
+    }
+}
